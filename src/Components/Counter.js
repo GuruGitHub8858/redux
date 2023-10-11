@@ -6,8 +6,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-import './css/Counter.css'; // You can remove this if it's not used
-
 const Counter = () => {
   const [incrementAmount, setIncrementAmount] = useState(0);
   const [decrementAmount, setDecrementAmount] = useState(0);
@@ -24,7 +22,7 @@ const Counter = () => {
   };
 
   return (
-    <section>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <Typography variant="h4">
         {count}
       </Typography>
@@ -32,7 +30,6 @@ const Counter = () => {
         <Button
           variant="contained"
           color="primary"
-          style={{ background: 'linear-gradient(to bottom, #007bff, #0056b3)' }}
           onClick={() => dispatch(increment())}
         >
           Increment
@@ -40,7 +37,6 @@ const Counter = () => {
         <Button
           variant="contained"
           color="secondary"
-          style={{ background: 'linear-gradient(to bottom, #dc3545, #bd2130)' }}
           onClick={() => dispatch(decrement())}
         >
           Decrement
@@ -51,6 +47,7 @@ const Counter = () => {
         <TextField
           type="number"
           variant="outlined"
+          size="small"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
@@ -58,6 +55,7 @@ const Counter = () => {
         <TextField
           type="number"
           variant="outlined"
+          size="small"
           value={decrementAmount}
           onChange={(e) => setDecrementAmount(e.target.value)}
         />
@@ -65,29 +63,24 @@ const Counter = () => {
       <Box>
         <Button
           variant="contained"
-          color="primary"
-          style={{ background: 'linear-gradient(to bottom, #007bff, #0056b3)' }}
           onClick={() => dispatch(incrementByAmount(addValue))}
         >
           Add Amount
         </Button>
         <Button
           variant="contained"
-          color="default"
           onClick={resetAll}
         >
           Reset All
         </Button>
         <Button
           variant="contained"
-          color="secondary"
-          style={{ background: 'linear-gradient(to bottom, #dc3545, #bd2130)' }}
           onClick={() => dispatch(decrementByAmount(subValue))}
         >
           Reduce Amount
         </Button>
       </Box>
-    </section>
+    </div>
   );
 };
 
