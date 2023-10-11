@@ -1,0 +1,51 @@
+.count_section {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .count {
+    font-size: 2rem;
+  }
+  
+  .button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+  /* Styling for the container div */
+.input {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for the "Input field" text */
+  .input p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Styling for the input field itself */
+  .input input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  /* Style the input field on focus (e.g., when it's clicked) */
+  .input input:focus {
+    border: 1px solid #007bff; /* Change the border color when focused */
+    box-shadow: 0 0 5px #007bff; /* Add a slight shadow for focus */
+  }
+  
