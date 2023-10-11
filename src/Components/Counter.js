@@ -5,37 +5,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
 
-import './css/Counter.css';
-
-const useStyles = makeStyles((theme) => ({
-  countSection: {
-    textAlign: 'center',
-    padding: theme.spacing(2),
-  },
-  countText: {
-    fontSize: '2rem',
-  },
-  buttonContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: theme.spacing(2),
-    marginTop: theme.spacing(2),
-  },
-  inputContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: theme.spacing(1),
-  },
-}));
+import './css/Counter.css'; // You can remove this if it's not used
 
 const Counter = () => {
   const [incrementAmount, setIncrementAmount] = useState(0);
   const [decrementAmount, setDecrementAmount] = useState(0);
   const count = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
-  const classes = useStyles();
 
   const addValue = Number(incrementAmount) || 0;
   const subValue = Number(decrementAmount) || 0;
@@ -47,19 +24,29 @@ const Counter = () => {
   };
 
   return (
-    <section className={classes.countSection}>
-      <Typography variant="h4" className={classes.countText}>
+    <section>
+      <Typography variant="h4">
         {count}
       </Typography>
-      <Box className={classes.buttonContainer}>
-        <Button variant="contained" color="primary" onClick={() => dispatch(increment())}>
+      <Box>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ background: 'linear-gradient(to bottom, #007bff, #0056b3)' }}
+          onClick={() => dispatch(increment())}
+        >
           Increment
         </Button>
-        <Button variant="contained" color="secondary" onClick={() => dispatch(decrement())}>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={{ background: 'linear-gradient(to bottom, #dc3545, #bd2130)' }}
+          onClick={() => dispatch(decrement())}
+        >
           Decrement
         </Button>
       </Box>
-      <Box className={classes.inputContainer}>
+      <Box>
         <Typography variant="subtitle1">Increment Amount:</Typography>
         <TextField
           type="number"
@@ -75,14 +62,28 @@ const Counter = () => {
           onChange={(e) => setDecrementAmount(e.target.value)}
         />
       </Box>
-      <Box className={classes.buttonContainer}>
-        <Button variant="contained" color="primary" onClick={() => dispatch(incrementByAmount(addValue))}>
+      <Box>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ background: 'linear-gradient(to bottom, #007bff, #0056b3)' }}
+          onClick={() => dispatch(incrementByAmount(addValue))}
+        >
           Add Amount
         </Button>
-        <Button variant="contained" color="default" onClick={resetAll}>
+        <Button
+          variant="contained"
+          color="default"
+          onClick={resetAll}
+        >
           Reset All
         </Button>
-        <Button variant="contained" color="secondary" onClick={() => dispatch(decrementByAmount(subValue))}>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={{ background: 'linear-gradient(to bottom, #dc3545, #bd2130)' }}
+          onClick={() => dispatch(decrementByAmount(subValue))}
+        >
           Reduce Amount
         </Button>
       </Box>
